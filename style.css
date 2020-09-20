@@ -1,0 +1,39 @@
+body{
+    padding: 100px;
+}
+.submit-area{
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 40px;
+
+}
+#pass{
+    margin-top:10px ;
+}
+
+#transaction-area{
+    display: none;
+}
+
+.deposit{
+    margin: 0 20px;
+    color:white;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: slateblue;
+}
+.withdrow{
+    margin: 0 20px;
+    color:white;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: lightsalmon;
+}
+.balance{
+    margin: 0 20px;
+    color:white;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: orange;
+}

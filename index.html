@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toxic Bank</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+
+    <div id="login-area">
+        <h1 class="text-center">Welcome to Toxic Bank</h1>
+        <div class="submit-area">
+            <h4>Login</h4>
+            <input type="text" class="form-control" placeholder="Enter your E-mail">
+            <input type="password" class="form-control" name="" id="pass" placeholder="Password">
+            <br>
+            <button id="login" class="btn btn-success ">Enter</button>
+        </div>
+    </div>
+
+
+
+
+<div id="transaction-area">
+    <div class="row">
+        <div class="col-md-4 ">
+            <div class="deposit">
+                <h5>Deposit</h5>
+            <h2>$ <span id="currentDeposit">00</span></h2>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="withdrow"><h5>Withdrow</h5>
+                <h2>$00</h2>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+         <div class="balance">
+            <h5>Balance</h5>
+            <h2>$13 <span id="currentBlance">00</span></h2>
+         </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+      <div class="submit-area">
+        <h4>Deposit</h4>
+        <input id="depositAmount" type="text" class="form-control" placeholder="$ amount you want to deposit">
+        <br>
+        <button id="addDeposit"class="btn btn-success">Deposit</button>
+      </div>
+        </div>
+        <div class="col-md-6">
+            <div class="submit-area">
+                <h4>Withdraw</h4>
+            <input id="withdrawAmount" type="text" class="form-control" placeholder="$ amount you want  withdraw">
+            <br>
+            <button id="addWithdraw" class="btn btn-success">Withdraw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+
+
+
+const lofinBtn = document.getElementById('login');
+lofinBtn.addEventListener('click', function(){
+    const loginarea = document.getElementById('login-area');
+    loginarea.style.display ="none";
+    const transactionarea = document.getElementById('transaction-area');
+    transactionarea.style.display ="block"
+})
+
+
+
+
+const depositbTN =document.getElementById('addDeposit');
+depositbTN.addEventListener('click',function(){
+    const  depositNumber = getInputNumber('depositAmount');
+
+
+//     const currentDeposit = document.getElementById('currentDeposit').innerText;
+// const currentDepositnum = parseFloat(currentDeposit);
+// const totalDeposit = depositNumber + currentDepositnum;
+// document.getElementById('currentDeposit').innerText = totalDeposit;
+
+// const currentblance1 = document.getElementById('currentBlance').innerText;
+// const currentBlanceNumber = parseFloat(currentblance1);
+// const totalBlance = depositNumber + currentBlanceNumber;
+// document.getElementById('currentBlance').innerText = totalBlance;
+
+updateSpanText('currentDeposit',depositNumber);
+
+updateSpanText('currentBlance',depositNumber);
+
+
+
+document.getElementById('depositAmount').value = '';
+
+})
+
+
+
+
+const withdrawBtn = document.getElementById('addWithdraw');
+
+withdrawBtn.addEventListener('click',function(){
+ const amountNumber = getInputNumber('withdrawAmount');
+console.log(amountNumber);
+});
+
+
+function getInputNumber(id){
+    const amount = document.getElementById(id).value;
+    const withdrawNumber = parseFloat(amount);
+    return withdrawNumber;
+}
+
+
+
+
+
+
+
+
+
+
+function updateSpanText(id, depositNumber){
+const current = document.getElementById(id).innerText;
+const currentNumber = parseFloat(current);
+const total = depositNumber + currentNumber;
+document.getElementById(id).innerText = total;
+}
+    </script>
+
+
+</body>
+</html>
