@@ -34,7 +34,7 @@
         </div>
         <div class="col-md-4 ">
             <div class="withdrow"><h5>Withdrow</h5>
-                <h2>$00</h2>
+                <h2>$ <span id="currentWithdraw">00</span></h2>
             </div>
         </div>
         <div class="col-md-4 ">
@@ -109,17 +109,19 @@ document.getElementById('depositAmount').value = '';
 
 
 const withdrawBtn = document.getElementById('addWithdraw');
-
 withdrawBtn.addEventListener('click',function(){
- const amountNumber = getInputNumber('withdrawAmount');
-console.log(amountNumber);
-});
+ const withdrawNumber = getInputNumber('withdrawAmount');
+
+updateSpanText('currentWithdraw', withdrawNumber);
+updateSpanText('currentBlance',(-1 * withdrawNumber) );
+document.getElementById('withdrawAmount').value ="";
+})
 
 
 function getInputNumber(id){
     const amount = document.getElementById(id).value;
-    const withdrawNumber = parseFloat(amount);
-    return withdrawNumber;
+    const amountNumber = parseFloat(amount);
+    return amountNumber;
 }
 
 
@@ -131,11 +133,11 @@ function getInputNumber(id){
 
 
 
-function updateSpanText(id, depositNumber){
+function updateSpanText(id, addedNumber){
 const current = document.getElementById(id).innerText;
 const currentNumber = parseFloat(current);
-const total = depositNumber + currentNumber;
-document.getElementById(id).innerText = total;
+const totalAmount = addedNumber + currentNumber;
+document.getElementById(id).innerText = totalAmount;
 }
     </script>
 
